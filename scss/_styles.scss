@@ -222,6 +222,7 @@ $grid-breakpoints: (
 
     &-list {
         display: flex;
+        justify-content: center;
         gap: 46px;
 
         span {
