@@ -132,3 +132,23 @@ select {
     font-weight: 600;
     line-height: 175%;
 }
+
+.heading-large {
+    color: var(--heading-color);
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 114.286%;
+}
+
+.heading-medium {
+    color: var(--heading-color);
+    font-size: 4.2rem;
+    font-weight: 800;
+    line-height: 123.81%;
+}
+
+.desc {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    line-height: 166.667%;
+}
