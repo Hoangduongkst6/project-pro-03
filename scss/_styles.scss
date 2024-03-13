@@ -220,6 +220,10 @@ $grid-breakpoints: (
     overflow: hidden;
     padding: 20px 0;
 
+    @include screen(md) {
+        padding: 10px 0;
+    }
+
     &-list {
         display: flex;
         justify-content: center;
@@ -232,6 +236,10 @@ $grid-breakpoints: (
             flex-shrink: 0;
             position: relative;
 
+            @include screen(md) {
+                font-size: 1.2rem;
+            }
+
             &::before {
                 content: "";
                 display: inline-block;
@@ -243,6 +251,11 @@ $grid-breakpoints: (
                 top: 50%;
                 left: -28px;
                 translate: 0 -50%;
+
+                @include screen(md) {
+                    width: 6;
+                    height: 6px;
+                }
             }
         }
     }
@@ -253,26 +266,43 @@ $grid-breakpoints: (
     background: #e0eae5;
     padding: 100px 0 156px;
 
-    &-body {
+    @include screen(md) {
+        padding: 50px 0 106px;
     }
 
     &-left {
         margin-top: 2px;
+
+        @include screen(xl) {
+            margin-bottom: 50px;
+        }
     }
 
     &-text {
         margin: 20px 0 40px;
         width: 570px;
         color: #032e32;
+
+        @include screen(md) {
+            width: 100%;
+        }
     }
 
     &-form {
         position: relative;
+        gap: 18px;
+
+        @extend %df-align;
 
         img {
             position: absolute;
-            top: 22px;
+            top: 50%;
             left: 16px;
+            translate: 0 -50%;
+
+            @include screen(md) {
+                left: 12px;
+            }
         }
 
         input {
@@ -282,16 +312,34 @@ $grid-breakpoints: (
             background: #fff;
             padding: 0 44px;
 
+            @include screen(md) {
+                padding: 0 40px;
+                height: 50px;
+            }
+
             &::placeholder {
                 color: #69797a;
                 font-size: 1.8rem;
                 line-height: 166.667%;
+
+                @include screen(md) {
+                    font-size: 1.6rem;
+                }
             }
         }
 
         &-btn {
-            margin-left: 18px;
             width: 191px;
+
+            @include screen(xxl) {
+                width: 170px;
+            }
+
+            @include screen(md) {
+                height: 50px;
+                font-size: 1.2rem;
+                width: 150px;
+            }
         }
     }
 
@@ -303,12 +351,16 @@ $grid-breakpoints: (
             translate: -50% -50%;
             top: 50%;
             left: 50%;
+
+            @include screen(md) {
+                width: 100%;
+            }
         }
     }
 }
 
 .item {
-    width: 370px;
+    width: 350px;
     height: 426px;
     border-radius: 12px;
     background: #fff;
@@ -397,6 +449,153 @@ $grid-breakpoints: (
         &-voters {
             color: #69797a;
             line-height: 175%;
+        }
+    }
+}
+
+// Benefits
+.benefits {
+    padding: 48px 0;
+    background: #032e32;
+    position: relative;
+
+    &-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include screen(md) {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 50px;
+        }
+    }
+
+    &-title {
+        color: #fff;
+        font-size: 1.8rem;
+        line-height: 166.667%;
+    }
+
+    &-heaidng {
+        width: 437px;
+        margin-top: 12px;
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 135.714%;
+
+        @include screen(lg) {
+            width: 300px;
+            font-size: 2.4rem;
+        }
+
+        @include screen(md) {
+            width: 100%;
+            font-size: 2rem;
+        }
+    }
+
+    &-inner {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        translate: -50% 0;
+
+        @include screen(xxl) {
+            left: calc(50% + 25px);
+        }
+    }
+
+    &-box {
+        width: 242px;
+        height: 214px;
+        border-radius: 12px;
+        background: #ff5f1a;
+
+        img {
+            width: 220px;
+            height: 260px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            translate: -50% 0;
+        }
+    }
+
+    &-wrap {
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        position: absolute;
+        top: 50px;
+        left: -28px;
+
+        img {
+            margin: auto;
+        }
+    }
+
+    &-list {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+
+        @include screen(md) {
+            gap: 25px;
+        }
+    }
+
+    &-item {
+        width: 167px;
+        span {
+            display: block;
+            margin-top: 14px;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 133.333%;
+
+            @include screen(md) {
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.about {
+    padding: 160px 0;
+
+    &-top {
+        margin: 0 auto;
+        width: 570px;
+        text-align: center;
+
+        @include screen(md) {
+            width: 100%;
+        }
+
+        p {
+            margin: 20px 0 40px;
+        }
+
+        a {
+            background: #b5ed3d;
+            width: 167px;
+            margin-bottom: 70px;
+        }
+    }
+
+    &-img {
+        width: 100%;
+        height: 440px;
+        border-radius: 12px;
+
+        @include screen(md) {
+            height: 300px;
         }
     }
 }

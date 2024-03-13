@@ -74,6 +74,7 @@ html {
 body {
     font-size: 1.6rem;
     font-family: "Plus Jakarta Sans", sans-serif;
+    color: #fff;
 }
 
 a {
@@ -111,11 +112,13 @@ select {
 }
 
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 62px;
     border-radius: 8px;
     background: #b5ed3d;
     padding: 0 20px;
-    margin: auto;
     color: #032e32;
     font-size: 1.8rem;
     font-weight: 600;
@@ -138,6 +141,14 @@ select {
     font-size: 7rem;
     font-weight: 800;
     line-height: 114.286%;
+
+    @include screen(lg) {
+        font-size: 6.4rem;
+    }
+
+    @include screen(md) {
+        font-size: 3.4rem;
+    }
 }
 
 .heading-medium {
@@ -151,4 +162,8 @@ select {
     color: var(--text-color);
     font-size: 1.8rem;
     line-height: 166.667%;
+
+    @include screen(md) {
+        font-size: 1.6rem;
+    }
 }
