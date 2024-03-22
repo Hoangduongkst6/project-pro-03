@@ -124,6 +124,10 @@ select {
     font-weight: 600;
     line-height: 166.667%;
     cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
 .btn-dark-color {

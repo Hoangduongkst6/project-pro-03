@@ -23,17 +23,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/main.css">
-
-    <!-- Sccripts -->
-    <script src="./assets/js/script.js"></script>
 </head>
 
 <body>
     <!-- Header -->
     <header id="header" class="header"></header>
-    <script>
-        load("#header", "./templates/header.html");
-    </script>
 
     <!-- Main -->
     <main>
@@ -68,15 +62,15 @@
                     <div class="col-6 col-xl-12">
                         <!-- Right -->
                         <div class="hero-right">
-                            <img src="./assets/icons/header/hero-right.svg" alt="">
+                            <img class="d-md-none" src="./assets/icons/header/hero-right.svg" alt="">
 
                             <!-- Item -->
-                            <article class="item">
+                            <article class="hero-item">
                                 <a href="#!" class="item-wrap">
                                     <img src="./assets/icons/header/arrow.svg" alt="">
                                 </a>
                                 <figure class="item-image">
-                                    <img src="./assets/images/hero.png" alt="">
+                                    <img src="./assets/images/course-6.png" alt="">
                                 </figure>
 
                                 <section class="item-body">
@@ -94,7 +88,6 @@
                                     </div>
                                 </section>
                             </article>
-
                         </div>
                     </div>
                 </div>
@@ -199,10 +192,38 @@
                 </div>
             </div>
         </div>
+
+        <!-- Courses section -->
+        <div class="courses">
+            <div class="container">
+                <!-- Top -->
+                <div class="courses-top">
+                    <h2 class="heading-medium">Course Subjects to suit you</h2>
+                    <p class="desc">Circuit is flexible and affordable and offers you exceptional support to achieve
+                        your career goals.</p>
+                </div>
+                <!-- List -->
+                <div class="courses-list">
+                    <div class="row g-3"></div>
+                </div>
+
+                <div class="courses-act">
+                    <button class="btn">All Course</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
     <header id="footer"></header>
+
+    <!-- Sccripts -->
+    <script src="./assets/js/script.js"></script>
+
+    <script>
+        load("#header", "./templates/header.html");
+    </script>
+
     <script>
         load("#footer", "./templates/footer.html");
     </script>
