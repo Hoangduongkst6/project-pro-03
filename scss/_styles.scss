@@ -925,6 +925,15 @@ $grid-breakpoints: (
     translate: -50% -50%;
 }
 
+@keyframes popupvideoFaceIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .popupvideo {
     position: fixed;
     inset: 0;
@@ -932,12 +941,11 @@ $grid-breakpoints: (
     z-index: 999;
     width: 100vw;
     height: 100vh;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
+    animation: popupvideoFaceIn 0.3s;
 
     &.active {
-        opacity: 1;
-        visibility: visible;
+        display: block;
     }
 
     &-inner {
@@ -953,48 +961,48 @@ $grid-breakpoints: (
             width: calc(100% - 40px);
             height: calc(100% - 40px);
         }
+    }
 
-        &-close {
-            display: flex;
-            width: 30px;
-            height: 30px;
-            background-color: #fff;
-            border-radius: 50%;
+    &-iframe {
+        position: absolute;
+        width: 100%;
+        height: 0;
+        padding-top: 52.25%;
+        background-color: #000;
+        border: 2px solid #fff;
+
+        @extend %translate-center;
+
+        video {
+            width: 100%;
+            height: 100%;
             position: absolute;
-            top: -12px;
-            right: -15px;
-            cursor: pointer;
+            inset: 0;
+        }
+    }
 
-            @include screen(md) {
-                width: 25px;
-                height: 25px;
-            }
+    &-close {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: -12px;
+        right: -15px;
+        cursor: pointer;
 
-            img {
-                margin: auto;
-                width: 14px;
-
-                @include screen(md) {
-                    width: 12px;
-                }
-            }
+        @include screen(md) {
+            width: 25px;
+            height: 25px;
         }
 
-        &-iframe {
-            position: absolute;
-            width: 100%;
-            height: 0;
-            padding-top: 52.25%;
-            background-color: #000;
-            border: 2px solid #fff;
+        img {
+            margin: auto;
+            width: 14px;
 
-            @extend %translate-center;
-
-            video {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                inset: 0;
+            @include screen(md) {
+                width: 12px;
             }
         }
     }

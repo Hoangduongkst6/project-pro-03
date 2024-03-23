@@ -208,12 +208,22 @@ function rander() {
 rander();
 
 // Video moda
-const popupVideo = $(".popupvideo");
+const popupVideo = $(".js-popupvideo");
+const popupVideoInner = $(".js-popupvideo-inner");
+const source = $(".popupvideo-iframe video source");
 
-$(".video-wrap").onclick = function () {
-    popupVideo.classList.add("active");
-};
-
-$(".popupvideo-inner-close").onclick = function () {
+function hideVideo() {
     popupVideo.classList.remove("active");
-};
+}
+
+$(".video-wrap").addEventListener("click", function () {
+    popupVideo.classList.add("active");
+});
+
+$(".js-popupvideo-close").addEventListener("click", hideVideo);
+
+popupVideo.addEventListener("click", hideVideo);
+
+popupVideoInner.addEventListener("click", function (e) {
+    e.stopPropagation();
+});
