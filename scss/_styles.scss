@@ -91,11 +91,7 @@ $grid-breakpoints: (
     }
 
     &-list {
-        padding-top: 20px;
-
-        @include screen(md) {
-            padding-top: 10px;
-        }
+        padding-top: 40px;
 
         a {
             padding: 6px 10px;
@@ -1005,5 +1001,158 @@ $grid-breakpoints: (
                 width: 12px;
             }
         }
+    }
+}
+
+// Testimonial section
+.testimonial {
+    margin-bottom: 160px;
+
+    @include screen(md) {
+        margin-bottom: 60px;
+    }
+
+    &-top {
+        width: 570px;
+
+        @include screen(md) {
+            width: 100%;
+        }
+
+        p {
+            margin-top: 18px;
+        }
+    }
+
+    &-list {
+        position: relative;
+        margin-top: 70px;
+    }
+
+    &-row {
+        overflow: hidden;
+        flex-wrap: nowrap;
+    }
+
+    &-item {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #d8e0e0;
+        padding: 44px 24px;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &.active {
+            opacity: 1;
+            box-shadow: 0px 18px 46px 0px rgba(3, 46, 50, 0.08);
+            border: 1px solid #fff;
+        }
+
+        &-one {
+            height: 502px;
+        }
+
+        &-two {
+            height: 446px;
+        }
+
+        &-three {
+            height: 474px;
+        }
+    }
+
+    &-inner {
+        h3 {
+            color: #032e32;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 166.667%;
+            width: 270px;
+        }
+
+        p {
+            color: #4f5a5a;
+            line-height: 175%;
+            margin-top: 28px;
+        }
+    }
+
+    &-group {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 38px;
+    }
+
+    &-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &-information {
+        > span {
+            color: #032e32;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 166.667%;
+        }
+    }
+
+    &-icons {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 6px;
+    }
+
+    &-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 38px;
+    }
+
+    &-dot {
+        width: 24px;
+        height: 4px;
+        border-radius: 2px;
+        background: #e0eae5;
+
+        &.active {
+            background-color: #b5ed3d;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 90%;
+
+        @extend %translate-center;
+
+        button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #a29e9e;
+            display: flex;
+
+            img {
+                margin: auto;
+                width: 15px;
+            }
+        }
+    }
+
+    &-next {
+        transform: rotate(180deg);
     }
 }
