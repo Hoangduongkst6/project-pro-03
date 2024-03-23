@@ -68,6 +68,7 @@ function initJsToggle() {
     });
 }
 
+// Courses section
 const courses = [
     {
         image: "./assets/images/course-1.png",
@@ -176,7 +177,7 @@ function rander() {
     });
     $(".row.g-3").innerHTML = htmls.join("");
 
-    const itemCourse = $$(".item");
+    const itemCourse = $$(".col-4.col-xl-6.col-md-12");
     const itemLength = itemCourse.length;
     let check = true;
 
@@ -205,3 +206,14 @@ function rander() {
 }
 
 rander();
+
+// Video moda
+const popupVideo = $(".popupvideo");
+
+$(".video-wrap").onclick = function () {
+    popupVideo.classList.add("active");
+};
+
+$(".popupvideo-inner-close").onclick = function () {
+    popupVideo.classList.remove("active");
+};

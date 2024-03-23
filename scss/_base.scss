@@ -54,8 +54,8 @@ $display-values: block, flex, grid, none;
     --header-padding: 28px;
 
     @include screen(md) {
-        --btn-height: 40px;
-        --header-padding: 25px;
+        --btn-height: 36px;
+        --header-padding: 20px;
     }
 
     --header-height: calc(var(--header-padding) * 2 + var(--btn-height));
@@ -151,7 +151,7 @@ select {
     }
 
     @include screen(md) {
-        font-size: 3.4rem;
+        font-size: 4.2rem;
     }
 }
 
@@ -160,6 +160,10 @@ select {
     font-size: 4.2rem;
     font-weight: 800;
     line-height: 123.81%;
+
+    @include screen(md) {
+        font-size: 3.2rem;
+    }
 }
 
 .desc {
