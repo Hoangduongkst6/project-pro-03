@@ -178,10 +178,12 @@ function rander() {
     $(".row.g-3").innerHTML = htmls.join("");
 
     const itemCourse = $$(".col-4.col-xl-6.col-md-12");
+    const actButton = $(".courses-act button");
+
     const itemLength = itemCourse.length;
     let check = true;
 
-    $(".courses-act").onclick = function () {
+    actButton.onclick = function () {
         if (check) {
             for (let i = 0; i < itemLength; i++) {
                 if (i + 1 > maxCourse) {
@@ -189,9 +191,12 @@ function rander() {
                 }
             }
             check = false;
+            this.innerText = "Close Courses";
         } else {
             onCourse();
             check = true;
+
+            this.innerText = "All Courses";
         }
     };
 
@@ -228,47 +233,26 @@ popupVideoInner.addEventListener("click", function (e) {
     e.stopPropagation();
 });
 
-const testimonialItems = $$(".testimonial-item");
-const testimonialDots = $$(".testimonial-dot");
+//Testimonial
+const itemsIestimonial = $$(".testimonial-item");
+const dotsTestimonial = $$(".testimonial-dot");
 
-const testimonialRow = $(".testimonial-row");
-const testimonialNext = $(".testimonial-next");
-const testimonialPrev = $(".testimonial-prev");
-
-let active = 0;
-const itemLength = testimonialItems.length - 1;
-
-testimonialItems.forEach((item, idx) => {
-    const testimonialDot = testimonialDots[idx];
+itemsIestimonial.forEach((item, idx) => {
+    const dotTestimonial = dotsTestimonial[idx];
 
     item.onclick = function () {
         $(".testimonial-item.active").classList.remove("active");
         $(".testimonial-dot.active").classList.remove("active");
 
         this.classList.add("active");
-        testimonialDot.classList.add("active");
+        dotTestimonial.classList.add("active");
     };
 
-    testimonialDot.onclick = function () {
+    dotTestimonial.onclick = function () {
         $(".testimonial-item.active").classList.remove("active");
         $(".testimonial-dot.active").classList.remove("active");
 
         item.classList.add("active");
         this.classList.add("active");
     };
-
-    testimonialNext.onclick = function () {
-        if (active + 1 > itemLength) {
-            active = 0;
-        } else {
-            active++;
-        }
-        reloadItem();
-    };
 });
-
-// function reloadItem() {
-//     testimonialRow.style.left = -
-// }
-
-console.log([testimonialItems]);

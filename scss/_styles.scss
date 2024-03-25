@@ -192,6 +192,7 @@ $grid-breakpoints: (
         line-height: 175%;
         font-size: 1.6rem;
         margin-right: 50px;
+        cursor: pointer;
 
         @include screen(lg) {
             margin-right: 30px;
@@ -307,6 +308,8 @@ $grid-breakpoints: (
             border-radius: 8px;
             background: #fff;
             padding: 0 44px;
+            color: #69797a;
+            line-height: 166.667%;
 
             @include screen(md) {
                 padding: 0 40px;
@@ -700,7 +703,7 @@ $grid-breakpoints: (
         margin-top: 55px;
 
         button {
-            width: 158px;
+            width: 167px;
         }
     }
 }
@@ -1027,11 +1030,17 @@ $grid-breakpoints: (
     &-list {
         position: relative;
         margin-top: 70px;
+
+        @include screen(lg) {
+            overflow: hidden;
+        }
     }
 
     &-row {
-        overflow: hidden;
         flex-wrap: nowrap;
+        height: 540px;
+        position: relative;
+        left: 0;
     }
 
     &-item {
@@ -1050,14 +1059,26 @@ $grid-breakpoints: (
 
         &-one {
             height: 502px;
+
+            @include screen(xl) {
+                height: auto;
+            }
         }
 
         &-two {
             height: 446px;
+
+            @include screen(xl) {
+                height: auto;
+            }
         }
 
         &-three {
             height: 474px;
+
+            @include screen(xl) {
+                height: auto;
+            }
         }
     }
 
@@ -1074,6 +1095,10 @@ $grid-breakpoints: (
             color: #4f5a5a;
             line-height: 175%;
             margin-top: 28px;
+
+            @include screen(md) {
+                font-size: 1.5rem;
+            }
         }
     }
 
@@ -1116,7 +1141,6 @@ $grid-breakpoints: (
         align-items: center;
         justify-content: center;
         gap: 12px;
-        margin-top: 38px;
     }
 
     &-dot {
@@ -1350,6 +1374,11 @@ $grid-breakpoints: (
             margin-top: 24px;
             display: flex;
             gap: 30px;
+
+            @include screen(md) {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         &-box {

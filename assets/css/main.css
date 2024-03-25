@@ -1345,6 +1345,7 @@ select {
   line-height: 175%;
   font-size: 1.6rem;
   margin-right: 50px;
+  cursor: pointer;
 }
 @media (max-width: 991.98px) {
   .act-log-in {
@@ -1458,6 +1459,8 @@ select {
   border-radius: 8px;
   background: #fff;
   padding: 0 44px;
+  color: #69797a;
+  line-height: 166.667%;
 }
 @media (max-width: 767.98px) {
   .hero-form input {
@@ -1827,7 +1830,7 @@ select {
   margin-top: 55px;
 }
 .courses-act button {
-  width: 158px;
+  width: 167px;
 }
 
 .item {
@@ -2122,9 +2125,16 @@ select {
   position: relative;
   margin-top: 70px;
 }
+@media (max-width: 991.98px) {
+  .testimonial-list {
+    overflow: hidden;
+  }
+}
 .testimonial-row {
-  overflow: hidden;
   flex-wrap: nowrap;
+  height: 540px;
+  position: relative;
+  left: 0;
 }
 .testimonial-item {
   width: 100%;
@@ -2142,11 +2152,26 @@ select {
 .testimonial-item-one {
   height: 502px;
 }
+@media (max-width: 1199.98px) {
+  .testimonial-item-one {
+    height: auto;
+  }
+}
 .testimonial-item-two {
   height: 446px;
 }
+@media (max-width: 1199.98px) {
+  .testimonial-item-two {
+    height: auto;
+  }
+}
 .testimonial-item-three {
   height: 474px;
+}
+@media (max-width: 1199.98px) {
+  .testimonial-item-three {
+    height: auto;
+  }
 }
 .testimonial-inner h3 {
   color: #032e32;
@@ -2159,6 +2184,11 @@ select {
   color: #4f5a5a;
   line-height: 175%;
   margin-top: 28px;
+}
+@media (max-width: 767.98px) {
+  .testimonial-inner p {
+    font-size: 1.5rem;
+  }
 }
 .testimonial-group {
   display: flex;
@@ -2192,7 +2222,6 @@ select {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 38px;
 }
 .testimonial-dot {
   width: 24px;
@@ -2402,6 +2431,12 @@ select {
   margin-top: 24px;
   display: flex;
   gap: 30px;
+}
+@media (max-width: 767.98px) {
+  .footer-group-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 .footer-group-box span {
   display: block;
