@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circuit</title>
+
+    <!-- Embed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <div class="log-in">
+        <div class="log-in-body">
+            <div class="log-in-left">
+                <div class="log-in-left-inner">
+                    <h2 class="heading-medium">Welcome Back to the online learning Circuit</h2>
+                    <p class="desc">Log In to learn something new and shine to your future career</p>
+                </div>
+            </div>
+            <div class="log-in-right">
+                <img src="./assets/icons/close.svg" alt="">
+
+                <form action="" method="POST" class="form" id="register-form">
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email address or phone number</label>
+                        <input id="email" name="email" rules="required|email" type="text"
+                            placeholder="Email address or phone number" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input id="password" name="password" rules="required|min:6" type="password"
+                            placeholder="Nhập mật khẩu" class="form-control">
+                        <span class="form-message"></span>
+
+                        <a href="#!" class="form-forgot">
+                            <span>Forgot?</span>
+                        </a>
+                    </div>
+
+                    <button class="form-submit">Log In</button>
+
+                    <span class="form-or">OR</span>
+
+                    <button class="form-submit">
+                        <img src="./assets/icons/google.svg" alt="">
+                        Continue with Google
+                    </button>
+
+                    <div class="form-create">
+                        Don’t have an account?
+                        <a href="#!">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/validator.js"></script>
+</body>
+
+</html>

@@ -1,22 +1,4 @@
-$grid-breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px,
-);
-
-@mixin screen($key) {
-    $breakpoint: map-get($grid-breakpoints, $key);
-
-    @if ($breakpoint) {
-        @media (max-width: ($breakpoint - 0.02)) {
-            @content;
-        }
-    } @else {
-        @error "The value #{$key} is not in breakpoints list.";
-    }
-}
+@use "../abstracts";
 
 $breakpoints: (
     xxl: 1400px,
@@ -53,7 +35,7 @@ $display-values: block, flex, grid, none;
     --btn-height: 50px;
     --header-padding: 28px;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         --btn-height: 36px;
         --header-padding: 20px;
     }
@@ -146,11 +128,11 @@ select {
     font-weight: 800;
     line-height: 114.286%;
 
-    @include screen(lg) {
+    @include abstracts.screen(lg) {
         font-size: 6.4rem;
     }
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         font-size: 4.2rem;
     }
 }
@@ -161,7 +143,7 @@ select {
     font-weight: 800;
     line-height: 123.81%;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         font-size: 3.2rem;
     }
 }
@@ -171,7 +153,7 @@ select {
     font-size: 1.8rem;
     line-height: 166.667%;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         font-size: 1.6rem;
     }
 }

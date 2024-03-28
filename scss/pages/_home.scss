@@ -1,227 +1,18 @@
-$grid-breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px,
-);
-
-@mixin screen($key) {
-    $breakpoint: map-get($grid-breakpoints, $key);
-
-    @if ($breakpoint) {
-        @media (max-width: ($breakpoint - 0.02)) {
-            @content;
-        }
-    } @else {
-        @error "The value #{$key} is not in breakpoints list.";
-    }
-}
+@use "../abstracts";
 
 %df-align {
     display: flex;
     align-items: center;
 }
 
-// Header
-.header {
-    position: fixed;
-    background-color: #e0eae5;
-    inset: 0 0 auto 0;
-    padding: var(--header-padding) 0;
-    z-index: 999;
-}
-
-.top-bar {
-    @extend %df-align;
-}
-
-.bars {
-    margin-right: auto;
-    padding: 4px;
-
-    img {
-        height: 20px;
-        width: 20px;
-    }
-}
-
-.drawer {
-    position: fixed;
-    inset: 0 auto 0 0;
-    background-color: rgba(255, 255, 255);
-    width: 70%;
-    translate: -100%;
-    transition: translate 0.3s;
-    z-index: 99;
-    padding: 20px 40px;
-
-    @include screen(md) {
-        width: 100%;
-        padding: 20px;
-    }
-
-    &.show {
-        display: block;
-        translate: 0;
-
-        & ~ .overlay {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        & ~ .arrow {
-            translate: 0;
-        }
-    }
-
-    &-logo {
-        justify-content: center;
-        margin: 20px 0;
-        gap: 10px;
-
-        @extend %df-align;
-
-        > span {
-            color: #032e32;
-            font-size: 2.4rem;
-            font-weight: 600;
-            line-height: 100%;
-        }
-    }
-
-    &-list {
-        padding-top: 40px;
-
-        a {
-            padding: 6px 10px;
-            color: #032e32;
-            line-height: 175%;
-            width: 100%;
-            display: inline-block;
-            border-radius: 4px;
-            transition: 0.2s;
-
-            &:hover {
-                text-shadow: 1px 0 0 #032e32;
-                background-color: #c7c7c7;
-            }
-        }
-    }
-}
-
-@supports (-webkit-backdrop-filter: blur(50px)) or (backdrop-filter: blur(50px)) {
-    .drawer {
-        -webkit-backdrop-filter: blur(50px);
-        backdrop-filter: blur(50px);
-        background-color: rgba(255, 255, 255, 0.8);
-    }
-}
-
-.arrow {
-    transform: rotate(180deg);
-
-    img {
-        width: 18px;
-    }
-}
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity, visibility;
-    transition-duration: 0.5s;
-    z-index: 9;
-}
-
-.logo {
-    gap: 6px;
-
-    @extend %df-align;
-
-    > span {
-        color: #032e32;
-        font-size: 2.4rem;
-        font-weight: 600;
-        line-height: 100%;
-    }
-}
-
-.navbar {
-    margin-left: auto;
-    margin-right: auto;
-
-    @include screen(xxl) {
-        margin-left: 293px;
-    }
-
-    @include screen(xl) {
-        margin-left: auto;
-    }
-
-    &-list {
-        @extend %df-align;
-        > li {
-            > a {
-                color: #032e32;
-                line-height: 175%;
-                padding: 0 21.5px;
-                transition: 0.2s;
-
-                &:hover {
-                    text-shadow: 1px 0 0 #032e32;
-                }
-            }
-        }
-    }
-}
-
-.act {
-    @extend %df-align;
-
-    @include screen(lg) {
-        margin-left: auto;
-    }
-
-    &-log-in {
-        color: #032e32;
-        font-weight: 600;
-        line-height: 175%;
-        font-size: 1.6rem;
-        margin-right: 50px;
-        cursor: pointer;
-
-        @include screen(lg) {
-            margin-right: 30px;
-        }
-
-        @include screen(md) {
-            display: none;
-            margin-right: 0;
-        }
-    }
-
-    &-btn {
-        height: var(--btn-height);
-        font-size: 1.3rem;
-        font-weight: 400;
-
-        @include screen(md) {
-            width: 90px;
-        }
-    }
-}
-
+// Offer section
 .offer {
     margin-top: var(--header-height);
     background: #ffcd00;
     overflow: hidden;
     padding: 20px 0;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 10px 0;
     }
 
@@ -233,7 +24,7 @@ $grid-breakpoints: (
             position: relative;
             margin-right: 46px;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 font-size: 1.2rem;
             }
 
@@ -249,7 +40,7 @@ $grid-breakpoints: (
                 left: -28px;
                 translate: 0 -50%;
 
-                @include screen(md) {
+                @include abstracts.screen(md) {
                     width: 6px;
                     height: 6px;
                 }
@@ -263,14 +54,14 @@ $grid-breakpoints: (
     background: #e0eae5;
     padding: 100px 0 156px;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 50px 0 106px;
     }
 
     &-left {
         margin-top: 2px;
 
-        @include screen(xl) {
+        @include abstracts.screen(xl) {
             margin-bottom: 50px;
         }
     }
@@ -280,7 +71,7 @@ $grid-breakpoints: (
         width: 570px;
         color: #032e32;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
     }
@@ -297,7 +88,7 @@ $grid-breakpoints: (
             left: 16px;
             translate: 0 -50%;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 left: 12px;
             }
         }
@@ -311,7 +102,7 @@ $grid-breakpoints: (
             color: #69797a;
             line-height: 166.667%;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 padding: 0 40px;
                 height: 50px;
             }
@@ -321,7 +112,7 @@ $grid-breakpoints: (
                 font-size: 1.8rem;
                 line-height: 166.667%;
 
-                @include screen(md) {
+                @include abstracts.screen(md) {
                     font-size: 1.6rem;
                 }
             }
@@ -330,11 +121,11 @@ $grid-breakpoints: (
         &-btn {
             width: 191px;
 
-            @include screen(xxl) {
+            @include abstracts.screen(xxl) {
                 width: 170px;
             }
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 height: 50px;
                 font-size: 1.2rem;
                 width: 150px;
@@ -347,7 +138,7 @@ $grid-breakpoints: (
         width: 370px;
         margin: auto;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 345px;
         }
 
@@ -357,7 +148,7 @@ $grid-breakpoints: (
             top: 50%;
             left: 50%;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 width: 100%;
             }
         }
@@ -373,7 +164,7 @@ $grid-breakpoints: (
         z-index: 99;
         margin: 0 auto;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
 
@@ -472,13 +263,13 @@ $grid-breakpoints: (
     }
 }
 
-// Benefits
+// Benefits section
 .benefits {
     padding: 48px 0;
     background: #032e32;
     position: relative;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 32px 0;
     }
 
@@ -487,7 +278,7 @@ $grid-breakpoints: (
         align-items: center;
         justify-content: space-between;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             align-items: flex-start;
             flex-direction: column;
             gap: 50px;
@@ -507,12 +298,12 @@ $grid-breakpoints: (
         font-weight: 700;
         line-height: 135.714%;
 
-        @include screen(lg) {
+        @include abstracts.screen(lg) {
             width: 300px;
             font-size: 2.4rem;
         }
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
             font-size: 2rem;
         }
@@ -524,7 +315,7 @@ $grid-breakpoints: (
         left: 50%;
         translate: -50% 0;
 
-        @include screen(xxl) {
+        @include abstracts.screen(xxl) {
             left: calc(50% + 25px);
         }
     }
@@ -566,13 +357,18 @@ $grid-breakpoints: (
         align-items: center;
         gap: 48px;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             gap: 25px;
         }
     }
 
     &-item {
         width: 167px;
+
+        @include abstracts.screen(md) {
+            width: auto;
+        }
+
         span {
             display: block;
             margin-top: 14px;
@@ -581,7 +377,7 @@ $grid-breakpoints: (
             font-weight: 600;
             line-height: 133.333%;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 font-size: 1.5rem;
                 font-weight: 400;
             }
@@ -589,10 +385,11 @@ $grid-breakpoints: (
     }
 }
 
+// About section
 .about {
     padding: 160px 0;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 60px 0;
     }
 
@@ -601,7 +398,7 @@ $grid-breakpoints: (
         width: 570px;
         text-align: center;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
 
@@ -621,23 +418,24 @@ $grid-breakpoints: (
         height: 440px;
         border-radius: 12px;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             height: 300px;
         }
     }
 }
 
+// Service section
 .service {
     padding: 160px 0;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 60px 0;
     }
 
     h2 {
         width: 570px;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
     }
@@ -672,11 +470,12 @@ $grid-breakpoints: (
     }
 }
 
+// Courses section
 .courses {
     background: #e0eae5;
     padding: 100px 0;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 50px 0;
     }
 
@@ -688,7 +487,7 @@ $grid-breakpoints: (
         flex-direction: column;
         margin: 0 auto;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
     }
@@ -708,6 +507,7 @@ $grid-breakpoints: (
     }
 }
 
+// Item
 .item {
     width: 100%;
     height: 426px;
@@ -816,7 +616,7 @@ $grid-breakpoints: (
 .video {
     padding: 160px 0;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         padding: 60px 0;
     }
 
@@ -825,7 +625,7 @@ $grid-breakpoints: (
         align-items: center;
         column-gap: 130px;
 
-        @include screen(xl) {
+        @include abstracts.screen(xl) {
             flex-direction: column;
             row-gap: 60px;
         }
@@ -835,7 +635,7 @@ $grid-breakpoints: (
         position: relative;
         display: flex;
 
-        @include screen(lg) {
+        @include abstracts.screen(lg) {
             width: 100%;
         }
 
@@ -844,15 +644,15 @@ $grid-breakpoints: (
             height: 430px;
             border-radius: 15px;
 
-            @include screen(xl) {
+            @include abstracts.screen(xl) {
                 margin: auto;
             }
 
-            @include screen(lg) {
+            @include abstracts.screen(lg) {
                 width: 100%;
             }
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 height: 250px;
             }
         }
@@ -878,7 +678,7 @@ $grid-breakpoints: (
     &-right {
         width: 570px;
 
-        @include screen(lg) {
+        @include abstracts.screen(lg) {
             width: 100%;
         }
 
@@ -933,6 +733,7 @@ $grid-breakpoints: (
     }
 }
 
+// Popupvideo section
 .popupvideo {
     position: fixed;
     inset: 0;
@@ -956,7 +757,7 @@ $grid-breakpoints: (
 
         @extend %translate-center;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: calc(100% - 40px);
             height: calc(100% - 40px);
         }
@@ -991,7 +792,7 @@ $grid-breakpoints: (
         right: -15px;
         cursor: pointer;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 25px;
             height: 25px;
         }
@@ -1000,7 +801,7 @@ $grid-breakpoints: (
             margin: auto;
             width: 14px;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 width: 12px;
             }
         }
@@ -1011,14 +812,14 @@ $grid-breakpoints: (
 .testimonial {
     margin-bottom: 160px;
 
-    @include screen(md) {
+    @include abstracts.screen(md) {
         margin-bottom: 60px;
     }
 
     &-top {
         width: 570px;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
 
@@ -1031,7 +832,7 @@ $grid-breakpoints: (
         position: relative;
         margin-top: 70px;
 
-        @include screen(lg) {
+        @include abstracts.screen(lg) {
             overflow: hidden;
         }
     }
@@ -1060,7 +861,7 @@ $grid-breakpoints: (
         &-one {
             height: 502px;
 
-            @include screen(xl) {
+            @include abstracts.screen(xl) {
                 height: auto;
             }
         }
@@ -1068,7 +869,7 @@ $grid-breakpoints: (
         &-two {
             height: 446px;
 
-            @include screen(xl) {
+            @include abstracts.screen(xl) {
                 height: auto;
             }
         }
@@ -1076,7 +877,7 @@ $grid-breakpoints: (
         &-three {
             height: 474px;
 
-            @include screen(xl) {
+            @include abstracts.screen(xl) {
                 height: auto;
             }
         }
@@ -1096,7 +897,7 @@ $grid-breakpoints: (
             line-height: 175%;
             margin-top: 28px;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 font-size: 1.5rem;
             }
         }
@@ -1181,13 +982,14 @@ $grid-breakpoints: (
     }
 }
 
+// cta section
 .cta {
     &-inner {
         background-color: #04704e;
         padding: 100px 0;
         position: relative;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             padding: 60px 0;
         }
 
@@ -1201,7 +1003,7 @@ $grid-breakpoints: (
                 translate: 0 -50%;
                 left: 135px;
 
-                @include screen(lg) {
+                @include abstracts.screen(lg) {
                     width: 100px;
                     height: 100px;
                     left: 10px;
@@ -1214,7 +1016,7 @@ $grid-breakpoints: (
                 left: 400px;
                 bottom: 109px;
 
-                @include screen(lg) {
+                @include abstracts.screen(lg) {
                     left: 170px;
                     bottom: 109px;
                 }
@@ -1225,7 +1027,7 @@ $grid-breakpoints: (
                 top: 96px;
                 right: 276px;
 
-                @include screen(lg) {
+                @include abstracts.screen(lg) {
                     right: 76px;
                 }
             }
@@ -1237,7 +1039,7 @@ $grid-breakpoints: (
                 translate: 0 -50%;
                 right: 135px;
 
-                @include screen(lg) {
+                @include abstracts.screen(lg) {
                     width: 100px;
                     height: 100px;
                     right: 10px;
@@ -1252,7 +1054,7 @@ $grid-breakpoints: (
         margin: 0 auto;
         position: relative;
 
-        @include screen(md) {
+        @include abstracts.screen(md) {
             width: 100%;
         }
 
@@ -1306,7 +1108,7 @@ $grid-breakpoints: (
             color: #fff;
             padding-top: 250px;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 padding-top: 0;
             }
         }
@@ -1321,194 +1123,10 @@ $grid-breakpoints: (
             margin-top: 38px;
             width: 173px;
 
-            @include screen(md) {
+            @include abstracts.screen(md) {
                 height: 50px;
                 width: 155px;
                 font-size: 1.6rem;
-            }
-        }
-    }
-}
-
-.footer {
-    padding-top: 92px;
-    background: #e0eae5;
-
-    &-inner {
-        display: flex;
-        column-gap: 128px;
-
-        @include screen(md) {
-            gap: 60px;
-            flex-direction: column;
-        }
-    }
-
-    &-separate {
-        display: flex;
-        column-gap: 128px;
-
-        @include screen(xl) {
-            flex-direction: column;
-            gap: 60px;
-        }
-    }
-
-    &-group {
-        @include screen(xl) {
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        h3 {
-            color: #032e32;
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 150%;
-            margin-bottom: 24px;
-        }
-
-        &-inner {
-            margin-top: 24px;
-            display: flex;
-            gap: 30px;
-
-            @include screen(md) {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-
-        &-box {
-            span {
-                display: block;
-                color: #032e32;
-                line-height: 175%;
-            }
-            a {
-                color: #032e32;
-                font-size: 2rem;
-                font-weight: 700;
-                margin-top: 16px;
-                line-height: 150%;
-            }
-        }
-    }
-
-    &-form {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-
-        input {
-            width: 258px;
-            height: 56px;
-            border-radius: 4px;
-            border: 1px solid #032e32;
-            padding: 0 18px;
-            color: #032e32;
-
-            &::placeholder {
-                color: #032e32;
-                line-height: 175%;
-            }
-        }
-
-        button {
-            width: 129px;
-            height: 56px;
-            font-size: 1.6rem;
-        }
-    }
-
-    &-list {
-        li {
-            &:first-child a {
-                padding-top: 0;
-            }
-
-            &:last-child a {
-                padding-bottom: 0;
-            }
-
-            a {
-                display: inline-block;
-                color: #032e32;
-                line-height: 175%;
-                padding-top: 6px;
-                padding-bottom: 6px;
-                width: 100%;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-
-    &-icons {
-        margin-top: 24px;
-        display: flex;
-        gap: 14px;
-    }
-
-    &-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background-color: #032e32;
-        display: flex;
-
-        &:hover {
-            cursor: pointer;
-            opacity: 0.9;
-        }
-
-        img {
-            filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(2%) hue-rotate(343deg) brightness(109%)
-                contrast(101%);
-            margin: auto;
-        }
-    }
-
-    &-end {
-        display: flex;
-        align-items: center;
-        margin-top: 48px;
-        border-top: 1px solid #d9d9d9;
-        padding: 28px 0;
-
-        @include screen(xl) {
-            justify-content: space-between;
-        }
-
-        @include screen(lg) {
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        &-logo {
-            margin-right: 378px;
-
-            @include screen(xl) {
-                margin-right: 0;
-            }
-        }
-
-        &-group {
-            gap: 27px;
-            display: flex;
-        }
-
-        > span {
-            color: #5d6c6c;
-            line-height: 175%;
-            margin-left: auto;
-
-            @include screen(xl) {
-                margin-left: 0;
             }
         }
     }

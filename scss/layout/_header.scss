@@ -1,0 +1,198 @@
+@use "../abstracts";
+
+// Header
+.header {
+    position: fixed;
+    background-color: #e0eae5;
+    inset: 0 0 auto 0;
+    padding: var(--header-padding) 0;
+    z-index: 999;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+}
+
+.bars {
+    margin-right: auto;
+    padding: 4px;
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+.drawer {
+    position: fixed;
+    inset: 0 auto 0 0;
+    background-color: rgba(255, 255, 255);
+    width: 70%;
+    translate: -100%;
+    transition: translate 0.3s;
+    z-index: 99;
+    padding: 20px 40px;
+
+    @include abstracts.screen(md) {
+        width: 100%;
+        padding: 20px;
+    }
+
+    &.show {
+        display: block;
+        translate: 0;
+
+        & ~ .overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        & ~ .arrow {
+            translate: 0;
+        }
+    }
+
+    &-logo {
+        justify-content: center;
+        margin: 20px 0;
+        gap: 10px;
+
+        display: flex;
+        align-items: center;
+
+        > span {
+            color: #032e32;
+            font-size: 2.4rem;
+            font-weight: 600;
+            line-height: 100%;
+        }
+    }
+
+    &-list {
+        padding-top: 40px;
+
+        a {
+            padding: 6px 10px;
+            color: #032e32;
+            line-height: 175%;
+            width: 100%;
+            display: inline-block;
+            border-radius: 4px;
+            transition: 0.2s;
+
+            &:hover {
+                text-shadow: 1px 0 0 #032e32;
+                background-color: #c7c7c7;
+            }
+        }
+    }
+}
+
+@supports (-webkit-backdrop-filter: blur(50px)) or (backdrop-filter: blur(50px)) {
+    .drawer {
+        -webkit-backdrop-filter: blur(50px);
+        backdrop-filter: blur(50px);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.arrow {
+    transform: rotate(180deg);
+
+    img {
+        width: 18px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity, visibility;
+    transition-duration: 0.5s;
+    z-index: 9;
+}
+
+.logo {
+    gap: 6px;
+    display: flex;
+    align-items: center;
+
+    > span {
+        color: #032e32;
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 100%;
+    }
+}
+
+.navbar {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include abstracts.screen(xxl) {
+        margin-left: 293px;
+    }
+
+    @include abstracts.screen(xl) {
+        margin-left: auto;
+    }
+
+    &-list {
+        display: flex;
+        align-items: center;
+
+        > li {
+            > a {
+                color: #032e32;
+                line-height: 175%;
+                padding: 0 21.5px;
+                transition: 0.2s;
+
+                &:hover {
+                    text-shadow: 1px 0 0 #032e32;
+                }
+            }
+        }
+    }
+}
+
+.act {
+    display: flex;
+    align-items: center;
+
+    @include abstracts.screen(lg) {
+        margin-left: auto;
+    }
+
+    &-log-in {
+        color: #032e32;
+        font-weight: 600;
+        line-height: 175%;
+        font-size: 1.6rem;
+        margin-right: 50px;
+        cursor: pointer;
+
+        @include abstracts.screen(lg) {
+            margin-right: 30px;
+        }
+
+        @include abstracts.screen(md) {
+            display: none;
+            margin-right: 0;
+        }
+    }
+
+    &-btn {
+        height: var(--btn-height);
+        font-size: 1.3rem;
+        font-weight: 400;
+
+        @include abstracts.screen(md) {
+            width: 90px;
+        }
+    }
+}
