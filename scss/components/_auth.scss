@@ -1,0 +1,229 @@
+@use "../abstracts";
+
+.auth {
+    background: linear-gradient(to right, #04704e 50%, #e0eae5 50%);
+
+    @include abstracts.screen(xl) {
+        background: #e0eae5;
+    }
+
+    &-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+
+        @include abstracts.screen(xl) {
+            justify-content: center;
+        }
+    }
+
+    &-left {
+        &-inner {
+            width: 470px;
+
+            h2 {
+                color: #fff;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    border-radius: 12px;
+                    background: #b5ed3d;
+                    width: 170px;
+                    height: 4px;
+                    position: absolute;
+                    left: 0;
+                    top: -20px;
+                }
+            }
+
+            p {
+                color: #fff;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    &-right {
+        position: relative;
+
+        @include abstracts.screen(md) {
+            width: 100%;
+        }
+
+        > a {
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 18px);
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.form {
+    border-radius: 12px;
+    background: #fff;
+    width: 470px;
+    height: 598px;
+    padding: 38px 28px;
+    position: relative;
+
+    @include abstracts.screen(md) {
+        width: 100%;
+        height: 498px;
+        padding: 25px 20px;
+    }
+
+    &-group {
+        margin-top: 26px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        @include abstracts.screen(md) {
+            margin-top: 16px;
+        }
+    }
+
+    &-label {
+        color: #032e32;
+        font-weight: 600;
+        line-height: 175%;
+        display: block;
+        margin-bottom: 17px;
+    }
+
+    &-control {
+        width: 100%;
+        height: 62px;
+        border-radius: 6px;
+        border: 1px solid #d4dddd;
+        padding: 0 17px;
+        color: #4f5a5a;
+        line-height: 175%;
+
+        @include abstracts.screen(md) {
+            height: 50px;
+        }
+    }
+
+    &-message {
+        display: block;
+    }
+
+    &-forgot {
+        color: #032e32;
+        font-weight: 600;
+        line-height: 175%;
+        position: absolute;
+        right: 45px;
+        top: 233px;
+
+        @include abstracts.screen(md) {
+            right: 36px;
+            top: 192px;
+            font-size: 1.4rem;
+        }
+    }
+
+    &-submit {
+        width: 100%;
+        height: 62px;
+        margin-top: 60px;
+
+        @include abstracts.screen(md) {
+            height: 50px;
+            margin-top: 45px;
+            font-size: 1.5rem;
+        }
+    }
+
+    &-or {
+        display: flex;
+        justify-content: center;
+        color: #4f5a5a;
+        line-height: 175%;
+        margin-top: 18px;
+        position: relative;
+        font-size: 1.5rem;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 172px;
+            height: 1px;
+            background: #d4dddd;
+            top: 50%;
+            translate: 0 -50%;
+            left: 0;
+
+            @include abstracts.screen(md) {
+                width: 133px;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 172px;
+            height: 1px;
+            background: #d4dddd;
+            top: 50%;
+            translate: 0 -50%;
+            right: 0;
+
+            @include abstracts.screen(md) {
+                width: 133px;
+            }
+        }
+    }
+
+    &-other {
+        margin: 18px auto 0;
+        border-radius: 6px;
+        border: 1px solid #d4dddd;
+        width: 255px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        cursor: pointer;
+
+        @include abstracts.screen(md) {
+            height: 40px;
+        }
+
+        span {
+            color: #4f5a5a;
+            line-height: 175%;
+        }
+    }
+
+    &-create {
+        color: #4f5a5a;
+        text-align: center;
+        line-height: 175%;
+        margin-top: 18px;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+        }
+
+        a {
+            color: #032e32;
+            font-weight: 700;
+        }
+    }
+}

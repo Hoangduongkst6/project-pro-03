@@ -198,3 +198,23 @@
         }
     }
 }
+
+.avatar {
+    width: 50px;
+    height: var(--btn-height);
+    cursor: pointer;
+
+    @include abstracts.screen(lg) {
+        margin-left: auto;
+    }
+
+    @include abstracts.screen(md) {
+        width: 36px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+    }
+}
