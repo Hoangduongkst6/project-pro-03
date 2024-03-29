@@ -1,0 +1,159 @@
+@use "../abstracts";
+
+$breakpoints: (
+    xxl: 1400px,
+    xl: 1200px,
+    lg: 992px,
+    md: 768px,
+    sm: 576px,
+);
+$display-values: block, flex, grid, none;
+
+@mixin make-display($breakpoint: null) {
+    $infix: if($breakpoint, "-#{$breakpoint}", "");
+
+    @each $display in $display-values {
+        .d#{$infix}-#{$display} {
+            display: $display !important;
+        }
+    }
+}
+
+@include make-display();
+
+@each $breakpoint, $dimension in $breakpoints {
+    @media (max-width: ($dimension - 0.02)) {
+        @include make-display($breakpoint);
+    }
+}
+
+:root {
+    --primary-color: #04704e;
+    --heading-color: #032e32;
+    --text-color: #4f5a5a;
+
+    --btn-height: 50px;
+    --header-padding: 28px;
+
+    @include abstracts.screen(md) {
+        --btn-height: 36px;
+        --header-padding: 20px;
+    }
+
+    --header-height: calc(var(--header-padding) * 2 + var(--btn-height));
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    object-fit: cover;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+input,
+textarea {
+    background: transparent;
+}
+
+a,
+img,
+button,
+input,
+label,
+textarea,
+select {
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+    border-radius: 8px;
+    background: #b5ed3d;
+    padding: 0 20px;
+    color: #032e32;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 166.667%;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.btn-dark-color {
+    height: 50px;
+    border-radius: 6px;
+    background: #032e32;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 175%;
+}
+
+.heading-large {
+    color: var(--heading-color);
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 114.286%;
+
+    @include abstracts.screen(lg) {
+        font-size: 6.4rem;
+    }
+
+    @include abstracts.screen(md) {
+        font-size: 4.2rem;
+    }
+}
+
+.heading-medium {
+    color: var(--heading-color);
+    font-size: 4.2rem;
+    font-weight: 800;
+    line-height: 123.81%;
+
+    @include abstracts.screen(md) {
+        font-size: 3.2rem;
+    }
+}
+
+.desc {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    line-height: 166.667%;
+
+    @include abstracts.screen(md) {
+        font-size: 1.6rem;
+    }
+}
