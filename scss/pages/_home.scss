@@ -1,0 +1,45 @@
+@use "../abstracts";
+
+// Offer section
+.offer {
+    margin-top: var(--header-height);
+    background: #ffcd00;
+    overflow: hidden;
+    padding: 20px 0;
+
+    @include abstracts.screen(md) {
+        padding: 10px 0;
+    }
+
+    &-list {
+        span {
+            color: #032e32;
+            font-size: 1.8rem;
+            line-height: 166.667%;
+            position: relative;
+            margin-right: 46px;
+
+            @include abstracts.screen(md) {
+                font-size: 1.2rem;
+            }
+
+            &::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #032e32;
+                border-radius: 50%;
+                top: 50%;
+                left: -28px;
+                translate: 0 -50%;
+
+                @include abstracts.screen(md) {
+                    width: 6px;
+                    height: 6px;
+                }
+            }
+        }
+    }
+}

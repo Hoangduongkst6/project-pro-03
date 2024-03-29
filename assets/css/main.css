@@ -1381,4 +1381,46 @@ select {
   }
 }
 
+.offer {
+  margin-top: var(--header-height);
+  background: #ffcd00;
+  overflow: hidden;
+  padding: 20px 0;
+}
+@media (max-width: 767.98px) {
+  .offer {
+    padding: 10px 0;
+  }
+}
+.offer-list span {
+  color: #032e32;
+  font-size: 1.8rem;
+  line-height: 166.667%;
+  position: relative;
+  margin-right: 46px;
+}
+@media (max-width: 767.98px) {
+  .offer-list span {
+    font-size: 1.2rem;
+  }
+}
+.offer-list span::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #032e32;
+  border-radius: 50%;
+  top: 50%;
+  left: -28px;
+  translate: 0 -50%;
+}
+@media (max-width: 767.98px) {
+  .offer-list span::before {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
