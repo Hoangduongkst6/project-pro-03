@@ -87,6 +87,16 @@
             }
         }
     }
+
+    &-arrow {
+        transform: rotate(180deg);
+
+        img {
+            width: 18px;
+            filter: brightness(0) saturate(100%) invert(14%) sepia(35%) saturate(1047%) hue-rotate(136deg)
+                brightness(92%) contrast(98%);
+        }
+    }
 }
 
 @supports (-webkit-backdrop-filter: blur(50px)) or (backdrop-filter: blur(50px)) {
@@ -94,14 +104,6 @@
         -webkit-backdrop-filter: blur(50px);
         backdrop-filter: blur(50px);
         background-color: rgba(255, 255, 255, 0.8);
-    }
-}
-
-.arrow {
-    transform: rotate(180deg);
-
-    img {
-        width: 18px;
     }
 }
 

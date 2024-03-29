@@ -1,0 +1,151 @@
+@use "../abstracts";
+
+// cta section
+.cta {
+    &-inner {
+        background-color: #04704e;
+        padding: 100px 0;
+        position: relative;
+
+        @include abstracts.screen(md) {
+            padding: 60px 0;
+        }
+
+        > img {
+            position: absolute;
+
+            &:nth-of-type(1) {
+                width: 122px;
+                height: 122px;
+                top: 50%;
+                translate: 0 -50%;
+                left: 135px;
+
+                @include abstracts.screen(lg) {
+                    width: 100px;
+                    height: 100px;
+                    left: 10px;
+                }
+            }
+
+            &:nth-of-type(2) {
+                width: 44px;
+                height: 44px;
+                left: 400px;
+                bottom: 109px;
+
+                @include abstracts.screen(lg) {
+                    left: 170px;
+                    bottom: 109px;
+                }
+            }
+            &:nth-of-type(3) {
+                width: 44px;
+                height: 44px;
+                top: 96px;
+                right: 276px;
+
+                @include abstracts.screen(lg) {
+                    right: 76px;
+                }
+            }
+
+            &:nth-of-type(4) {
+                width: 122px;
+                height: 122px;
+                top: 50%;
+                translate: 0 -50%;
+                right: 135px;
+
+                @include abstracts.screen(lg) {
+                    width: 100px;
+                    height: 100px;
+                    right: 10px;
+                }
+            }
+        }
+    }
+
+    &-body {
+        width: 570px;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+
+        @include abstracts.screen(md) {
+            width: 100%;
+        }
+
+        > img {
+            position: absolute;
+
+            &:nth-child(1) {
+                width: 62px;
+                height: 62px;
+                top: 70px;
+                left: -12px;
+            }
+
+            &:nth-child(2) {
+                width: 120px;
+                height: 120px;
+                top: 90px;
+                left: 78px;
+            }
+
+            &:nth-child(3) {
+                width: 80px;
+                height: 80px;
+                top: 0;
+                left: 209px;
+            }
+
+            &:nth-child(4) {
+                width: 144px;
+                height: 144px;
+                top: 68px;
+                left: 319px;
+            }
+
+            &:nth-child(5) {
+                width: 76px;
+                height: 76px;
+                top: 4px;
+                left: 445px;
+            }
+
+            &:nth-child(6) {
+                width: 62px;
+                height: 62px;
+                top: 121px;
+                left: 512px;
+            }
+        }
+
+        h2 {
+            color: #fff;
+            padding-top: 250px;
+
+            @include abstracts.screen(md) {
+                padding-top: 0;
+            }
+        }
+
+        p {
+            color: #fff;
+            margin-top: 18px;
+            font-size: 1.4rem;
+        }
+
+        button {
+            margin-top: 38px;
+            width: 173px;
+
+            @include abstracts.screen(md) {
+                height: 50px;
+                width: 155px;
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
