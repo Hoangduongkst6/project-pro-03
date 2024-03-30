@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circuit</title>
+
+    <!-- Embed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <!-- Auth -->
+    <div class="auth">
+        <div class="container">
+            <div class="auth-body">
+                <div class="auth-left d-xl-none">
+                    <div class="auth-left-inner">
+                        <h2 class="heading-medium">Welcome Back to the online learning Circuit</h2>
+                        <p class="desc">Log In to learn something new and shine to your future career</p>
+                    </div>
+                </div>
+                <div class="auth-right">
+                    <a href="./index.html">
+                        <img src="./assets/icons/auth/close.svg" alt="">
+                    </a>
+
+                    <form action="" method="POST" class="form" id="register-form">
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input id="email" name="email" rules="required | email" type="text"
+                                placeholder="Email address" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" name="password" rules="required | min: 6" type="password"
+                                placeholder="Password" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input id="password_confirmation" name="password_confirmation"
+                                placeholder="Confirm Password" type="password" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+
+                        <a href="#!" class="form-forgot">
+                            <span>Forgot?</span>
+                        </a>
+
+                        <button class="form-submit btn">Log In</button>
+
+                        <span class="form-or">OR</span>
+
+                        <button class="form-other">
+                            <img src="./assets/icons/auth/google.svg" alt="">
+                            <span>Continue with Google</span>
+                        </button>
+
+                        <div class="form-create">
+                            Have an account?
+                            <a href="./log-in.html">Log In</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/validator.js"></script>
+
+    <script>
+        // Output
+        Validator({
+            form: '#register-form',
+            formGroupSelector: '.form-group',
+            errSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email', 'Please enter your email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#register-form #password').value;
+                }, 'Re-entered password is incorrect')
+            ],
+            onSubmit: function (data) {
+                console.log(data);
+            }
+        });
+
+    </script>
+</body>
+
+</html>

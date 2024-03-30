@@ -2644,6 +2644,11 @@ select {
   right: 0;
   bottom: calc(100% + 18px);
 }
+@media (max-width: 767.98px) {
+  .auth-right > a {
+    bottom: calc(100% + 8px);
+  }
+}
 .auth-right img {
   width: 20px;
   height: 20px;
@@ -2689,7 +2694,8 @@ select {
 }
 @media (max-width: 767.98px) {
   .form-label {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
   }
 }
 .form-control {
@@ -2698,14 +2704,14 @@ select {
   border-radius: 6px;
   border: 1px solid #d4dddd;
   padding: 0 17px;
+  color: #4f5a5a;
 }
 @media (max-width: 767.98px) {
   .form-control {
-    height: 50px;
+    height: 45px;
   }
 }
 .form-control::placeholder {
-  color: #4F5A5A;
   font-size: 1.6rem;
   line-height: 175%;
 }
@@ -2716,7 +2722,7 @@ select {
 }
 .form-message {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 @media (max-width: 767.98px) {
   .form-message {
@@ -2734,7 +2740,7 @@ select {
 @media (max-width: 767.98px) {
   .form-forgot {
     font-size: 1.4rem;
-    margin-top: 10px;
+    margin-top: 0;
   }
 }
 .form-submit {
@@ -2745,6 +2751,8 @@ select {
 @media (max-width: 767.98px) {
   .form-submit {
     font-size: 1.5rem;
+    height: 45px;
+    margin-top: 20px;
   }
 }
 .form-or {
@@ -2759,6 +2767,7 @@ select {
 @media (max-width: 767.98px) {
   .form-or {
     font-size: 1.5rem;
+    margin-top: 8px;
   }
 }
 .form-or::before {
@@ -2806,6 +2815,7 @@ select {
 @media (max-width: 767.98px) {
   .form-other {
     height: 40px;
+    margin-top: 8px;
   }
 }
 .form-other span {
@@ -2821,6 +2831,7 @@ select {
 @media (max-width: 767.98px) {
   .form-create {
     font-size: 1.5rem;
+    margin-top: 8px;
   }
 }
 .form-create a {
