@@ -70,21 +70,28 @@
     border-radius: 12px;
     background: #fff;
     width: 470px;
-    height: 598px;
+    min-height: 100px;
     padding: 38px 28px;
-    position: relative;
 
     @include abstracts.screen(md) {
         width: 100%;
-        height: 498px;
         padding: 25px 20px;
     }
 
     &-group {
         margin-top: 26px;
 
-        &:first-child {
+        &:nth-child(1) {
             margin-top: 0;
+        }
+
+        &.invalid .form-control {
+            border-color: #f33a58;
+            background-color: #f33a5826;
+        }
+
+        &.invalid .form-message {
+            color: #f33a58;
         }
 
         @include abstracts.screen(md) {
@@ -98,6 +105,10 @@
         line-height: 175%;
         display: block;
         margin-bottom: 17px;
+
+        @include abstracts.screen(md) {
+            margin-bottom: 10px;
+        }
     }
 
     &-control {
@@ -106,41 +117,51 @@
         border-radius: 6px;
         border: 1px solid #d4dddd;
         padding: 0 17px;
-        color: #4f5a5a;
-        line-height: 175%;
 
         @include abstracts.screen(md) {
             height: 50px;
+        }
+
+        &::placeholder {
+            color: #4F5A5A;
+            font-size: 1.6rem;
+            line-height: 175%;
+
+            @include abstracts.screen(md) {
+                font-size: 1.4rem;
+            }
         }
     }
 
     &-message {
         display: block;
+        margin-top: 6px;
+
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+        }
     }
 
     &-forgot {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
         color: #032e32;
         font-weight: 600;
         line-height: 175%;
-        position: absolute;
-        right: 45px;
-        top: 233px;
 
         @include abstracts.screen(md) {
-            right: 36px;
-            top: 192px;
             font-size: 1.4rem;
+            margin-top: 10px;
         }
     }
 
     &-submit {
         width: 100%;
-        height: 62px;
-        margin-top: 60px;
+        height: 52px;
+        margin-top: 30px;
 
         @include abstracts.screen(md) {
-            height: 50px;
-            margin-top: 45px;
             font-size: 1.5rem;
         }
     }

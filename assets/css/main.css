@@ -2653,22 +2653,27 @@ select {
   border-radius: 12px;
   background: #fff;
   width: 470px;
-  height: 598px;
+  min-height: 100px;
   padding: 38px 28px;
-  position: relative;
 }
 @media (max-width: 767.98px) {
   .form {
     width: 100%;
-    height: 498px;
     padding: 25px 20px;
   }
 }
 .form-group {
   margin-top: 26px;
 }
-.form-group:first-child {
+.form-group:nth-child(1) {
   margin-top: 0;
+}
+.form-group.invalid .form-control {
+  border-color: #f33a58;
+  background-color: rgba(243, 58, 88, 0.1490196078);
+}
+.form-group.invalid .form-message {
+  color: #f33a58;
 }
 @media (max-width: 767.98px) {
   .form-group {
@@ -2682,47 +2687,63 @@ select {
   display: block;
   margin-bottom: 17px;
 }
+@media (max-width: 767.98px) {
+  .form-label {
+    margin-bottom: 10px;
+  }
+}
 .form-control {
   width: 100%;
   height: 62px;
   border-radius: 6px;
   border: 1px solid #d4dddd;
   padding: 0 17px;
-  color: #4f5a5a;
-  line-height: 175%;
 }
 @media (max-width: 767.98px) {
   .form-control {
     height: 50px;
   }
 }
+.form-control::placeholder {
+  color: #4F5A5A;
+  font-size: 1.6rem;
+  line-height: 175%;
+}
+@media (max-width: 767.98px) {
+  .form-control::placeholder {
+    font-size: 1.4rem;
+  }
+}
 .form-message {
   display: block;
+  margin-top: 6px;
+}
+@media (max-width: 767.98px) {
+  .form-message {
+    font-size: 1.4rem;
+  }
 }
 .form-forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
   color: #032e32;
   font-weight: 600;
   line-height: 175%;
-  position: absolute;
-  right: 45px;
-  top: 233px;
 }
 @media (max-width: 767.98px) {
   .form-forgot {
-    right: 36px;
-    top: 192px;
     font-size: 1.4rem;
+    margin-top: 10px;
   }
 }
 .form-submit {
   width: 100%;
-  height: 62px;
-  margin-top: 60px;
+  height: 52px;
+  margin-top: 30px;
 }
 @media (max-width: 767.98px) {
   .form-submit {
-    height: 50px;
-    margin-top: 45px;
     font-size: 1.5rem;
   }
 }
