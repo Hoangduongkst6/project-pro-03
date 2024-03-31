@@ -2491,6 +2491,13 @@ select {
   position: relative;
   margin: auto;
   width: 470px;
+  border-radius: 12px;
+}
+@media (max-width: 767.98px) {
+  .about-us-hero-right {
+    width: 100%;
+    text-align: center;
+  }
 }
 .about-us-hero-right img:nth-child(1) {
   position: absolute;
@@ -2505,6 +2512,12 @@ select {
   height: 470px;
   z-index: 1;
   position: relative;
+}
+@media (max-width: 767.98px) {
+  .about-us-hero-right img:nth-child(2) {
+    width: 300px;
+    height: 300px;
+  }
 }
 @media (max-width: 767.98px) {
   .about-us-hero-right img {

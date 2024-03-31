@@ -41,6 +41,12 @@
             position: relative;
             margin: auto;
             width: 470px;
+            border-radius: 12px;
+
+            @include abstracts.screen(md) {
+                width: 100%;
+                text-align: center;
+            }
 
             img {
                 &:nth-child(1) {
@@ -57,6 +63,11 @@
                     height: 470px;
                     z-index: 1;
                     position: relative;
+
+                    @include abstracts.screen(md) {
+                        width: 300px;
+                        height: 300px;
+                    }
                 }
 
                 @include abstracts.screen(md) {
