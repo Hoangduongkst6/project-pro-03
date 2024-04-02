@@ -1,0 +1,187 @@
+@use "../abstracts";
+
+.resources {
+    margin-top: var(--header-height);
+
+    &-category {
+        background: #ffcd00;
+        padding: 20px 0;
+
+        &-menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-search {
+            img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        &-bars {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &-list {
+            display: flex;
+
+            a {
+                padding: 0 19px;
+                color: #032e32;
+                font-size: 1.8rem;
+                line-height: 166.667%;
+
+                @include abstracts.screen(lg) {
+                    padding: 0 10px;
+                }
+
+                &:hover {
+                    color: #ff5f1a;
+                }
+            }
+        }
+    }
+
+    &-group {
+        margin: 160px 0;
+
+        h2 {
+            width: 570px;
+            text-align: center;
+            margin: 0 auto 70px;
+
+            @include abstracts.screen(md) {
+                width: 100%;
+            }
+        }
+
+        &-inner {
+            height: 582px;
+            border-radius: 12px;
+            border: 1px solid #d8e0e0;
+            background: #fff;
+            padding: 24px;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            &-body {
+                position: absolute;
+                width: 322px;
+                bottom: 48px;
+                left: 48px;
+
+                @include abstracts.screen(md) {
+                    width: 272px;
+                    left: 38px;
+                }
+
+                h3 {
+                    color: #fff;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    line-height: 150%;
+                }
+
+                span {
+                    color: #fff;
+                    font-size: 1.4rem;
+                    line-height: 171.429%;
+                    margin: 12px 0 16px;
+                }
+
+                p {
+                    color: #fff;
+                    line-height: 175%;
+                }
+
+                a {
+                    color: #fff;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    line-height: 166.667%;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &-item {
+            height: 582px;
+            border-radius: 12px;
+            border: 1px solid #d8e0e0;
+            background: #fff;
+            padding: 24px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 262px;
+                border-radius: 12px;
+
+                @include abstracts.screen(md) {
+                    height: 240px;
+                }
+            }
+
+            &-body {
+                margin-top: 24px;
+                width: 322px;
+
+                @include abstracts.screen(lg) {
+                    width: 100%;
+                }
+
+                h3 {
+                    color: #032e32;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    line-height: 150%;
+                }
+
+                span {
+                    display: block;
+                    color: #91a1a1;
+                    font-size: 1.4rem;
+                    line-height: 171.429%;
+                    margin: 12px 0 16px;
+                }
+
+                p {
+                    color: #4f5a5a;
+                    line-height: 175%;
+
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                a {
+                    display: block;
+                    color: #ff5f1a;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    line-height: 166.667%;
+                    margin-top: 22px;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &-btn {
+            display: flex;
+            margin: 55px auto 0;
+        }
+    }
+}
+
+.color-white {
+    color: #fff;
+}
