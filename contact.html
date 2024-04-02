@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit | Contact</title>
+
+    <!-- Embed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="header"></header>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="contact">
+            <div class="container">
+                <h1 class="heading-large">Let’s talk with us easily</h1>
+
+                <form action="" method="POST" class="contact-form" id="contact-form">
+
+                    <div class="form-group contact-group">
+                        <input id="firstname" name="firstname" type="text" placeholder="Your first name"
+                            class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group contact-group">
+                        <input id="lastname" name="lastname" type="text" placeholder="Your last name"
+                            class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group contact-group">
+                        <input id="email" name="email" type="text" placeholder="Your email address"
+                            class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group contact-group">
+                        <input id="number" name="number" type="number" placeholder="Your phone number"
+                            class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group contact-select">
+                        <label for="password_confirmation" class="contact-label">I want to learn</label>
+                        <div class="contact-horizontal">
+                            <div>
+                                <input id="design" name="gender" type="radio" value="design" checked>
+                                <label for="design">Design</label>
+                            </div>
+                            <div>
+                                <input id="development" name="gender" type="radio" value="development">
+                                <label for="development">Development</label>
+                            </div>
+                            <div>
+                                <input id="marketing" name="gender" type="radio" value="marketing">
+                                <label for="marketing">Marketing</label>
+                            </div>
+                            <div>
+                                <input id="other" name="gender" type="radio" value="other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group contact-message">
+                        <textarea id="message" name="message" type="text" placeholder="Write your messages"
+                            class="form-control"></textarea>
+                        <span class="form-message"></span>
+                    </div>
+
+                    <button type="submit" class="btn contact-btn">Send Message</button>
+                </form>
+
+
+
+            </div>
+        </div>
+
+        <!-- Call to action section -->
+        <secrion id="cta" class="cta"></secrion>
+
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+    </div>
+
+    <!-- Sccripts -->
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/validator.js"></script>
+    <script>
+
+        Validator({
+            form: "#contact-form",
+            formGroupSelector: ".form-group",
+            errSelector: ".form-message",
+            rules: [
+                Validator.isRequired("#firstname"),
+                Validator.isRequired("#lastname"),
+                Validator.isRequired("#email"),
+                Validator.isEmail("#email"),
+                Validator.isRequired("#number"),
+                Validator.isRequired("#message"),
+            ]
+        })
+
+    </script>
+
+    <script>
+        load("#header", "./templates/header.html");
+    </script>
+
+    <script>
+        load("#cta", "./cta.html");
+    </script>
+
+    <script>
+        load("#footer", "./templates/footer.html");
+    </script>
+</body>
+
+</html>
